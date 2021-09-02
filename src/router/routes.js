@@ -4,7 +4,11 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Index.vue') }
+      { path: '', component: () => import('pages/Index.vue') },
+      { path: '/inbox', component: () => import('pages/Inbox.vue') },
+      { path: '/outbox', component: () => import('pages/Outbox.vue') },
+      { path: '/contacts', component: () => import('pages/Contacts.vue') },
+      { path: '/settings', component: () => import('pages/Settings.vue') }
     ]
   },
 

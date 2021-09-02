@@ -44,6 +44,7 @@
     <q-page-container>
       <router-view />
     </q-page-container>
+    <Footer/>
   </q-layout>
 </template>
 
@@ -61,7 +62,7 @@ const linksList = [
     title: 'Settings',
     caption: 'github.com/quasarframework',
     icon: 'settings',
-    link: '#'
+    link: '#/settings'
   },
   {
     title: 'Support',
@@ -96,11 +97,13 @@ const linksList = [
 ]
 
 import { defineComponent, ref } from 'vue'
+import Footer from 'components/Footer'
 
 export default defineComponent({
   name: 'MainLayout',
 
   components: {
+    Footer,
     EssentialLink
   },
 
