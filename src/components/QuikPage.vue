@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-card class="my-card" flat bordered>
+    <q-card class="my-card" flat>
       <q-item>
         <q-item-section avatar>
           <q-avatar>
@@ -38,7 +38,7 @@
         control-color="white"
         navigation
         height="200px"
-        class="bg-grey-1 rounded-borders"
+        class="bg-grey-1"
       >
         <q-carousel-slide :name="1" class="column no-wrap">
           <div class="row fit justify-start items-center q-gutter-xs q-col-gutter no-wrap">
@@ -66,14 +66,26 @@
         </q-carousel-slide>
       </q-carousel>
     </div>
+    <div>
+      <q-field class="q-px-md" :model-value="text" bottom-slots label="Location" stack-label>
+        <template v-slot:prepend>
+          <q-icon name="place" />
+        </template>
+      </q-field>
+      <q-img class="rounded-borders col-12 full-height" src="https://cdn.quasar.dev/img/material.png" />
+      <main-action-button>
+      </main-action-button>
+    </div>
   </div>
 </template>
 
 <script>
 import { ref } from 'vue'
+import MainActionButton from 'components/MainActionButton'
 
 export default {
   name: 'QuikPage',
+  components: { MainActionButton },
   setup () {
     return {
       slide: ref(1)

@@ -111,6 +111,7 @@ export default defineComponent({
     const leftDrawerOpen = ref(false)
 
     return {
+      fabLeft: ref(true),
       essentialLinks: linksList,
       leftDrawerOpen,
       toggleLeftDrawer () {
