@@ -20,6 +20,7 @@
 import { ref } from 'vue'
 export default {
   name: 'MainActionButton',
+
   setup () {
     return {
       fabRight: ref(true),
