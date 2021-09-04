@@ -1,6 +1,6 @@
 <template>
   <div>
-    <quik-short-item/>
+    <QuikDetailedItem/>
   </div>
   <div class="justify-center">
     <Footer/>
@@ -10,10 +10,10 @@
 
 <script>
 import { defineComponent } from 'vue'
-import QuikShortItem from 'components/QuikShortItem'
+import QuikDetailedItem from 'components/QuikDetailedItem'
 
 export default defineComponent({
-  name: 'Inbox',
-  components: { QuikShortItem }
+  name: 'QuikPage',
+  components: { QuikDetailedItem }
 })
 </script>

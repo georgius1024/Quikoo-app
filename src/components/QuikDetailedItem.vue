@@ -84,7 +84,7 @@ import { ref } from 'vue'
 import MainActionButton from 'components/MainActionButton'
 
 export default {
-  name: 'QuikPage',
+  name: 'QuikDetailedItem',
   components: { MainActionButton },
   setup () {
     return {

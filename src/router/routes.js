@@ -1,6 +1,7 @@
 
 const routes = [
   {
+    history: true,
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
@@ -8,7 +9,8 @@ const routes = [
       { path: '/inbox', component: () => import('pages/Inbox.vue') },
       { path: '/outbox', component: () => import('pages/Outbox.vue') },
       { path: '/contacts', component: () => import('pages/Contacts.vue') },
-      { path: '/settings', component: () => import('pages/Settings.vue') }
+      { path: '/settings', component: () => import('pages/Settings.vue') },
+      { path: '/quikdetails', component: () => import('pages/QuikPage.vue') }
     ]
   },
 
