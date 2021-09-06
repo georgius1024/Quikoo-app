@@ -2,6 +2,7 @@
   <q-page class="flex flex-center">
     <q-page-container>
       <div>
+        <main-action-button/>
         <Footer/>
       </div>
     </q-page-container>
@@ -10,9 +11,10 @@
 
 <script>
 import { defineComponent } from 'vue'
+import MainActionButton from 'components/MainActionButton'
 
 export default defineComponent({
   name: 'Outbox',
-  components: { }
+  components: { MainActionButton }
 })
 </script>

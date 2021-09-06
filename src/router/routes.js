@@ -10,7 +10,8 @@ const routes = [
       { path: '/outbox', component: () => import('pages/Outbox.vue') },
       { path: '/contacts', component: () => import('pages/Contacts.vue') },
       { path: '/settings', component: () => import('pages/Settings.vue') },
-      { path: '/quikdetails', component: () => import('pages/QuikPage.vue') }
+      { path: '/quikdetails', component: () => import('pages/QuikPage.vue') },
+      { path: '/createquik', component: () => import('pages/CreateQuikPage.vue') }
     ]
   },
 
