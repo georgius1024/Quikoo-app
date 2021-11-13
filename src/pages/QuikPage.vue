@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <QuikDetailedItem/>
-  </div>
+  <QuikDetailedItem/>
   <div class="justify-center">
     <Footer/>
   </div>

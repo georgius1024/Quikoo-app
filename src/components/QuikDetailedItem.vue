@@ -20,12 +20,8 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          <!--          TODO: Прикрутить кнопку "Read more..."-->
         </q-card-section>
-        <!--        <q-separator vertical />-->
-
-        <!--        <q-card-section class="col-4">-->
-        <!--          Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-        <!--        </q-card-section>-->
       </q-card-section>
     </q-card>
     <div>
@@ -66,34 +62,95 @@
         </q-carousel-slide>
       </q-carousel>
     </div>
-    <div>
-      <q-field class="q-px-md" :model-value="text" bottom-slots label="Location" stack-label>
-        <template v-slot:prepend>
-          <q-icon name="place" />
+    <div >
+      <q-field class="q-mx-md"  :model-value="text" bottom-slots label="Its better for you to do it before:" stack-label :dense="dense">
+        <template v-slot:before>
+          <q-icon name="schedule" />
+        </template>
+
+        <template v-slot:control>
+          <div class="self-center full-width no-outline" tabindex="0">{{text}}</div>
         </template>
       </q-field>
+      <q-field class="q-mx-md"  :model-value="text" bottom-slots label="Check out this place to deal with it" stack-label :dense="dense">
+        <template v-slot:before>
+          <q-icon name="near_me" />
+        </template>
+
+        <template v-slot:control>
+          <div class="self-center full-width no-outline" tabindex="0">{{text}}</div>
+        </template>
+      </q-field>
+
       <q-img class="rounded-borders col-12 full-height" src="https://cdn.quasar.dev/img/material.png" />
-      <main-action-button>
-      </main-action-button>
+      <q-list>
+        <q-item v-for="contact in offline" :key="contact.id" class="q-mb-sm" clickable v-ripple>
+          <q-item-section avatar>
+            <q-avatar>
+              <img :src="`https://cdn.quasar.dev/img/${contact.avatar}`">
+            </q-avatar>
+          </q-item-section>
+
+          <q-item-section>
+            <q-item-label>{{ contact.name }}</q-item-label>
+            <q-item-label caption lines="3">{{ contact.email }}</q-item-label>
+          </q-item-section>
+
+          <q-item-section side>
+            <q-icon name="chat_bubble" color="grey" />
+          </q-item-section>
+        </q-item>
+      </q-list>
+      <q-card-section class="show-more-comments">
+        Show {n} more comments...
+      </q-card-section>
+      <div class="q-mt-sm">
+        <q-input outlined v-model="text" :dense="dense">
+          <template v-slot:prepend>
+            <q-icon name="add_circle_outline" />
+          </template>
+          <template v-slot:append>
+            <q-icon name="send" />
+          </template>
+        </q-input>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { ref } from 'vue'
-import MainActionButton from 'components/MainActionButton'
-
+// import MainActionButton from 'components/MainActionButton'
+const offline = [{
+  id: 5,
+  name: 'Brunhilde Panswick',
+  email: 'bpanswick4@csmonitor.com bpanswick4@csmonitor. combpanswick4@c bpanswick4@csmonitor.com bpanswick4@csmonitor. combpanswick4@c smonitor.com',
+  avatar: 'avatar2.jpg'
+}, {
+  id: 6,
+  name: 'Winfield Stapforth',
+  email: 'wstapforth5@pcworld.com',
+  avatar: 'avatar6.jpg'
+}]
 export default {
   name: 'QuikDetailedItem',
-  components: { MainActionButton },
   setup () {
     return {
-      slide: ref(1)
+      slide: ref(1),
+      offline,
+      text: ref('12.12.2022 13:11'),
+      dense: ref(false)
     }
   }
 }
 </script>
 
 <style scoped>
+.show-more-comments {
+  padding: 0;
+  margin-left: 72px;
+  font-size: 10px;
+  color: #ff0000;
+}
 
 </style>

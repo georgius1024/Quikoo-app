@@ -42,6 +42,7 @@
     </q-drawer>
 
     <q-page-container>
+<!--      //TODO Разобраться с паддингом q-page-container = 48 (отрывает меню)-->
       <router-view />
     </q-page-container>
     <Footer/>
@@ -121,3 +122,9 @@ export default defineComponent({
   }
 })
 </script>
+
+<style scoped>
+q-page-container {
+  padding-bottom: 18px;
+}
+</style>
