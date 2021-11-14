@@ -1,5 +1,5 @@
 <template>
-  <q-card class="my-card" flat v-for="quik in quiks" :key="quik.id">
+  <q-card class="my-card" flat v-for="quik in quiks.value" :key="quik.id">
     <q-slide-item right-color="secondary"
                   left-color="primary"
                   @left="onLeft"
@@ -51,14 +51,11 @@ import { onBeforeUnmount } from 'vue'
 
 export default {
   name: 'QuikShortItem',
-  props: {
-    quiks: {
-      type: Array
-    }
-  },
-  setup () {
+  props: ['quiks'],
+  setup (props) {
     const $q = useQuasar()
     let timer
+    console.log(props)
 
     function finalize (reset) {
       timer = setTimeout(() => {
@@ -75,7 +72,6 @@ export default {
         $q.notify('Left action triggered. Resetting in 1 second.')
         finalize(reset)
       },
-
       onRight ({ reset }) {
         $q.notify('Right action triggered. Resetting in 1 second.')
         finalize(reset)

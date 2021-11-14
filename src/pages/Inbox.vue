@@ -1,5 +1,5 @@
 <template>
-  <quik-short-item v-bind:quiks="quiks" />
+  <quik-short-item :quiks="quiks" />
   <main-action-button></main-action-button>
   <div class="justify-evenly">
     <Footer/>
@@ -19,11 +19,7 @@ import { useQuasar } from 'quasar'
 export default defineComponent({
   name: 'Inbox',
   components: { MainActionButton, QuikShortItem },
-  props: {
-    quiks: {
-      type: Array
-    }
-  },
+
   setup () {
     const $q = useQuasar()
     let timer = ref(null)
@@ -119,6 +115,7 @@ export default defineComponent({
           if (change.type === 'added') {
             console.log('New entry: ', quikChange)
             quiks.value.unshift(quikChange)
+            console.log('quiks ', quiks.value)
           }
           if (change.type === 'modified') {
             console.log('Modified entry: ', quikChange)
