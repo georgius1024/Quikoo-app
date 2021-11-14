@@ -82,10 +82,6 @@ export default {
       }
     }
   },
-  data () {
-    return {
-    }
-  },
   computed: {
     dateFormatter () {
       return date.formatDate(this.quiks.reminderTime, 'YYYY-MM-DDTHH')
