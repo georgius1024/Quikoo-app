@@ -107,6 +107,7 @@ export default defineComponent({
     onBeforeUnmount(() => {
       clearTimeout(timer)
     })
+
     onMounted(() => {
       const q = query(collection(db, 'quiks'))
       const unsubscribe = onSnapshot(q, snapshot => {
