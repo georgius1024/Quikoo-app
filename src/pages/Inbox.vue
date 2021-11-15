@@ -1,5 +1,7 @@
 <template>
-  <quik-short-item :quiks="quiks" />
+<!--  <quik-short-item :quiks="quiks" />-->
+  {{quiks}}
+  {{newquiks}}
   <main-action-button></main-action-button>
   <div class="justify-evenly">
     <Footer/>
@@ -13,7 +15,7 @@ import db from 'src/boot/firebase'
 import { onSnapshot, collection, query } from 'firebase/firestore'
 import QuikShortItem from 'components/QuikShortItem'
 import MainActionButton from 'components/MainActionButton'
-import { onBeforeUnmount, onMounted, defineComponent, ref, toRefs} from 'vue'
+import { onBeforeUnmount, onMounted, defineComponent, ref, nextTick } from 'vue'
 import { useQuasar } from 'quasar'
 
 export default defineComponent({
@@ -23,6 +25,7 @@ export default defineComponent({
   setup () {
     const $q = useQuasar()
     let timer = ref(null)
+    const newquiks = ref([])
     let quiks = ref([
         // {
         //   id: 1,
@@ -114,9 +117,17 @@ export default defineComponent({
         snapshot.docChanges().forEach(change => {
           let quikChange = change.doc.data()
           if (change.type === 'added') {
-            console.log('New entry: ', quikChange)
+            // console.log('New entry: ', quikChange)
+
             quiks.value.unshift(quikChange)
+            // const newquiks = quiks.value.map(()=>{
+            //   return quiks.value
+            // })
+            // quiks.value = [...quiks.value, quikChange]
+            console.log(change.doc.data())
             console.log('quiks ', quiks.value)
+            // console.log('newquiks ', newquiks.value)
+
           }
           if (change.type === 'modified') {
             console.log('Modified entry: ', quikChange)
@@ -132,6 +143,7 @@ export default defineComponent({
       onLeft,
       onRight,
       quiks,
+      newquiks
     }
 
 

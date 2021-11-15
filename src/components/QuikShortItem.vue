@@ -1,5 +1,5 @@
 <template>
-  <q-card class="my-card" flat v-for="quik in quiks.value" :key="quik.id">
+  <q-card class="my-card" flat v-for="quik in quiks" :key="quik.id">
     <q-slide-item right-color="secondary"
                   left-color="primary"
                   @left="onLeft"
